@@ -85,4 +85,4 @@ io.on('connection', socket => {
 })
 
 //abrindo a conexão padrao hehe
-httpServer.listen(3000, (() => { console.log("Servidor Rodando!"); }))
+httpServer.listen(80, (() => { console.log("Servidor Rodando!"); }))
