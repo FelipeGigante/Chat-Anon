@@ -57,7 +57,7 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
-    const socket = io("http://localhost:3000/");
+    const socket = io();
 
     //coletando o ID do atual cliente (atual requisição)
     socket.on('connect', () => {
