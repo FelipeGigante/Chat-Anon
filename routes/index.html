@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <title>
+        Chat dos KIDS
+    </title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Chat Anônimo dos KIDS</a>
+
+            <span class="navbar-text">
+                <p id="users"> Usuários Online: </p>
+            </span>
+
+        </div>
+    </nav>
+
+    <br><br>
+    <div class="d-flex justify-content-center">
+        <h1>Salas Disponíveis</h1>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <br><br><br>
+        <a class="btn btn-dark btn-lg" type="button" href="/variados">Variados</a>
+        <a class="btn btn-dark btn-lg" type="button" href="/esportes">Esportes</a>
+        <a class="btn btn-dark btn-lg" type="button" href="/adulto">Adulto</a>
+        <a class="btn btn-dark btn-lg" type="button" href="/programacao">Programação</a>
+        <a class="btn btn-dark btn-lg" type="button" href="/amizades">Amizades</a>
+    </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    const socket = io();
+
+    //coletando o ID do atual cliente (atual requisição)
+    socket.on('connect', () => {
+        console.log('ID:' + socket.id);
+    });
+
+    //recebendo do back a quantidade de usuarios logados simultaneamente
+    socket.on("users", (arg) => {
+        var users = document.getElementById('users').innerHTML += arg;
+        console.log(arg);
+    });
+
+
+</script>
+
+</html>
