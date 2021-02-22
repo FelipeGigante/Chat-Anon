@@ -42,7 +42,7 @@
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
-    const socket = io();
+    const socket = io("https://chat-anon.herokuapp.com/");
 
     //coletando o ID do atual cliente (atual requisição)
     socket.on('connect', () => {
